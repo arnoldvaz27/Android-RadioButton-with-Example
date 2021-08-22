@@ -1,4 +1,4 @@
-package com.example.differentandroidcodes;
+package com.arnoldvaz27.radiobutton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,11 +8,13 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+
 public class MainActivity extends AppCompatActivity {
 
     RadioGroup radioGroup;
     RadioButton male,female;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,18 +24,14 @@ public class MainActivity extends AppCompatActivity {
         male = findViewById(R.id.radioButton1);
         female = findViewById(R.id.radioButton2);
 
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @SuppressLint("NonConstantResourceId")
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId){
-                    case R.id.radioButton1:
-                        Toast.makeText(MainActivity.this, "male", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.radioButton2:
-                        Toast.makeText(MainActivity.this, "female", Toast.LENGTH_SHORT).show();
-                        break;
-                }
+        radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            switch (checkedId){
+                case R.id.radioButton1:
+                    Toast.makeText(MainActivity.this, "male", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.radioButton2:
+                    Toast.makeText(MainActivity.this, "female", Toast.LENGTH_SHORT).show();
+                    break;
             }
         });
 
